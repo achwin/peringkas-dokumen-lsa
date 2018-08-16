@@ -29,7 +29,7 @@ class LsaController extends Controller
 			$words[$i] = array_filter($word);
 			$words[$i] = array_values($words[$i]);
 		}
-		$filename = "C:/Users/Hilmi/Documents/2018/Rama/id.stopwords.02.01.2016.txt";
+		$filename = public_path('id.stopwords.02.01.2016.txt');
 		$stopwords = file($filename, FILE_IGNORE_NEW_LINES);
 
 		foreach ($words as $i => $word) {
