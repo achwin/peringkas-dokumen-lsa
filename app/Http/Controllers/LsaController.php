@@ -18,7 +18,6 @@ class LsaController extends Controller
 		foreach ($sentences as $i => $sentence) {
 			$sentences[$i] = mb_strtolower($sentence);
 		}
-
 		$words = [];
 		foreach ($sentences as $i => $sentence) {
 			$sentence = preg_replace('/[^a-z]/', ' ', $sentence);
@@ -48,7 +47,12 @@ class LsaController extends Controller
 			foreach ($word as $j => $w) {
 				$words[$i][$j]   = $stemmer->stem($w);
 			}
+			$print[$i] = implode(' ', $words[$i]);
 		}
-		dd($words);
+		$data = [
+			'sentences' => $sentences
+		];
+		// dd($print);
+		return view('test',$data);
     }
 }
